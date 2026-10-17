@@ -299,3 +299,20 @@ h3 { font-size: 22px; margin-bottom: 14px; }
   }
   .price-dots { display: none; }
 }
+
+/* ===== ФИКС ШАПКИ ===== */
+.desktop-nav { display: flex; gap: 28px; }
+.desktop-nav a { color: #5c4a4a; font-size: 16px; letter-spacing: 0.5px; transition: 0.3s; }
+.desktop-nav a:hover { color: #c45a7a; }
+
+@media (max-width: 900px) {
+  .desktop-nav { display: none !important; } /* Прячем текстовое меню на телефонах */
+  .mobile-menu-btn { display: block !important; } /* Показываем бургер */
+  .header-phone { display: none !important; } /* Прячем телефон */
+  
+  .header-inner { 
+    flex-wrap: nowrap !important; 
+    justify-content: space-between !important; 
+    align-items: center !important;
+  }
+}
