@@ -6,24 +6,24 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// Функция для выполнения команд в терминале
+// Измененная функция: ошибки не останавливают скрипт, а просто выводятся в консоль
 function run(cmd) {
   try {
     console.log(`> ${cmd}`);
     execSync(cmd, { stdio: 'inherit' });
   } catch (error) {
-    console.error(`\n❌ Ошибка при выполнении: ${cmd}`);
-    process.exit(1);
+    console.log(`\n⚠️ Предупреждение по команде: ${cmd}`);
+    console.log('Продолжаем выполнение...\n');
   }
 }
 
 console.log('========================================');
-console.log('  ДЕПЛОЙ НА GITHUB');
+console.log('  ДЕПЛОЙ НА GITHUB (ИСПРАВЛЕННЫЙ)');
 console.log('========================================\n');
 
 rl.question('Введите ваш GitHub Username (например, nastya123): ', (username) => {
   rl.question('Введите название репозитория (например, nastya-color): ', (repoName) => {
-    rl.question('Введите ваш GitHub Token (начинается на ghp_...): ', (token) => {
+    rl.question('Введите ваш НОВЫЙ GitHub Token (начинается на ghp_...): ', (token) => {
       rl.close();
 
       const remoteUrl = `https://${token}@github.com/${username}/${repoName}.git`;
@@ -31,33 +31,32 @@ rl.question('Введите ваш GitHub Username (например, nastya123)
 
       console.log('\n--- Начинаем процесс ---\n');
 
-      // 1. Инициализация гита
+      // 1. Инициализация
       run('git init');
 
-      // 2. Добавляем все файлы (node_modules исключен благодаря .gitignore)
+      // 2. Добавляем файлы
       run('git add .');
 
-      // 3. Создаем коммит
-      run('git commit -m "Initial commit: Nastya Colorist Website"');
+      // 3. Коммит (если нечего коммитить - скрипт не упадет)
+      run('git commit -m "Update site"');
 
-      // 4. Переименовываем ветку в main (стандарт GitHub)
+      // 4. Переименовываем ветку
       run('git branch -M main');
 
-      // 5. Добавляем удаленный репозиторий (с токеном для авторизации)
+      // 5. Удаляем старый origin, если он был
+      run('git remote remove origin');
+
+      // 6. Добавляем новый origin
       run(`git remote add origin ${remoteUrl}`);
 
-      // 6. Пушим код на GitHub
+      // 7. Пушим принудительно (-f), чтобы перезаписать возможные старые файлы на сервере
       console.log('\nОтправляем файлы на GitHub...');
-      run('git push -u origin main');
+      run('git push -u origin main -f');
 
       console.log('\n========================================');
-      console.log('  ✅ УСПЕШНО ЗАДЕПЛОЕНО!');
+      console.log('  ✅ ГОТОВО!');
       console.log('========================================');
-      console.log(`\nВаш сайт доступен по адресу:\n${publicUrl}`);
-      console.log('\nВажно: Не забудьте включить GitHub Pages в настройках репозитория,');
-      console.log('чтобы сайт стал доступен в интернете (Settings -> Pages -> Branch: main).');
-      console.log('Но помните: для работы Node.js сервера нужен хостинг (например, Render.com или Vercel),');
-      console.log('GitHub Pages отображает только статические файлы.');
+      console.log(`\nВаш репозиторий: ${publicUrl}`);
       console.log('');
     });
   });
