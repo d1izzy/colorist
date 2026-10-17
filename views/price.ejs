@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<main class="price-page">
+  <div class="container">
+    <p class="section-label">Прайс-лист</p>
+    <h1>Окрашивания</h1>
+    <p class="section-desc">Точная стоимость зависит от длины и густоты волос. Запись по телефону <a href="tel:89514462515">8 (951) 446-25-15</a>.</p>
+    <div class="price-list">
+      <% price.categories.forEach(function(cat) { %>
+        <div class="price-category">
+          <h3><%= cat.title %></h3>
+          <% cat.items.forEach(function(item) { %>
+            <div class="price-item">
+              <span class="price-name"><%= item.name %></span>
+              <span class="price-dots"></span>
+              <span class="price-value"><%= item.price %> ₽</span>
+            </div>
+          <% }) %>
+        </div>
+      <% }) %>
+    </div>
+    <div class="center price-cta">
+      <a href="tel:89514462515" class="btn btn-primary">Записаться по телефону</a>
+      <a href="https://vk.ru/nastyona1231" target="_blank" class="btn btn-outline">Написать в VK</a>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

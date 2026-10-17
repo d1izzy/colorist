@@ -1,0 +1,110 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: #fdfaf9; color: #332626; line-height: 1.8; font-weight: 400; -webkit-font-smoothing: antialiased; font-size: 20px; }
+a { color: #c45a7a; text-decoration: none; transition: 0.3s; }
+a:hover { color: #a63a5a; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1150px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; letter-spacing: 0.5px; color: #2b1a1e; }
+h1 { font-size: 76px; }
+h2 { font-size: 48px; margin-bottom: 24px; }
+h3 { font-size: 22px; margin-bottom: 14px; }
+.section-label { font-family: 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 4px; color: #c45a7a; margin-bottom: 16px; font-weight: 500; }
+.section-desc { color: #7a6b6b; max-width: 620px; margin-bottom: 40px; }
+/* Кнопки */
+.btn { display: inline-block; padding: 15px 36px; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; border: 1px solid transparent; }
+.btn-primary { background: #c45a7a; color: #fff; box-shadow: 0 8px 20px rgba(196,90,122,0.2); }
+.btn-primary:hover { background: #a63a5a; color: #fff; transform: translateY(-2px); box-shadow: 0 12px 25px rgba(196,90,122,0.3); }
+.btn-outline { background: transparent; border: 1px solid #c45a7a; color: #c45a7a; }
+.btn-outline:hover { background: #c45a7a; color: #fff; transform: translateY(-2px); }
+.btn-full { width: 100%; text-align: center; }
+/* Шапка */
+.header { position: sticky; top: 0; z-index: 100; background: rgba(253, 250, 249, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196,90,122,0.15); }
+.header-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+.logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; letter-spacing: 3px; color: #2b1a1e; }
+.logo span { color: #c45a7a; }
+.nav { display: flex; gap: 28px; }
+.nav a { color: #5c4a4a; font-size: 16px; letter-spacing: 0.5px; }
+.nav a:hover { color: #c45a7a; }
+.phone { font-size: 14px; font-weight: 500; color: #2b1a1e; padding: 8px 18px; border: 1px solid rgba(196,90,122,0.3); border-radius: 50px; }
+.phone:hover { border-color: #c45a7a; color: #c45a7a; }
+/* Hero */
+.hero { position: relative; min-height: 88vh; display: flex; align-items: center; background: linear-gradient(135deg, #ffffff 0%, #f8ecef 40%, #f2dfe4 100%); overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.9) 0%, transparent 50%), radial-gradient(circle at 85% 70%, rgba(196,90,122,0.1) 0%, transparent 60%), radial-gradient(circle at 50% 50%, rgba(255,182,193,0.2) 0%, transparent 60%); pointer-events: none; }
+.hero-content { position: relative; z-index: 2; text-align: center; width: 100%; animation: fadeUp 1s ease forwards; }
+.hero-subtitle { font-size: 16px; letter-spacing: 6px; text-transform: uppercase; color: #c45a7a; margin-bottom: 30px; font-weight: 700; }
+.hero h1 { margin-bottom: 28px; }
+.hero h1 span { color: #c45a7a; font-style: italic; }
+.hero-text { font-size: 24px; color: #5c4a4a; max-width: 750px; margin: 0 auto 50px; font-weight: 400; line-height: 1.6; }
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+/* Секции */
+.section { padding: 100px 0; }
+.section.about { background: #ffffff; }
+.section.course { background: #fcf6f7; }
+.section.services { background: #ffffff; }
+.section.cta { background: #f8ecef; }
+.center { text-align: center; }
+/* Обо мне */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 30px; }
+.about-text p { color: #5c4a4a; margin-bottom: 20px; font-size: 20px; }
+.stats { display: flex; flex-direction: column; gap: 16px; }
+.stat { background: #fdfaf9; border: 1px solid rgba(196,90,122,0.15); border-radius: 14px; padding: 24px 28px; display: flex; align-items: baseline; gap: 18px; transition: 0.3s; }
+.stat:hover { border-color: #c45a7a; transform: translateX(6px); box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+.stat strong { font-family: 'Playfair Display', serif; font-size: 40px; color: #c45a7a; line-height: 1; }
+.stat span { color: #7a6b6b; font-size: 19px; }
+/* Курс */
+.course-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; margin-top: 20px; }
+.course-card { background: #ffffff; border: 1px solid rgba(196,90,122,0.15); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: 0.3s; }
+.course-card:hover { border-color: rgba(196,90,122,0.4); box-shadow: 0 15px 40px rgba(196,90,122,0.08); }
+.course-card-accent { background: linear-gradient(160deg, #fcf6f7 0%, #ffffff 100%); border-color: #c45a7a; }
+.course-list { list-style: none; }
+.course-list li { padding: 14px 0 14px 28px; border-bottom: 1px solid rgba(196,90,122,0.1); color: #5c4a4a; font-size: 19px; position: relative; }
+.course-list li:last-child { border-bottom: none; }
+.course-list li::before { content: '✦'; position: absolute; left: 0; color: #c45a7a; font-size: 14px; }
+.course-list-check li::before { content: '✓'; font-weight: bold; color: #c45a7a; }
+.course-price { margin: 20px 0 10px; }
+.course-card-accent .price-value { font-family: 'Playfair Display', serif; font-size: 44px; color: #c45a7a; display: block; line-height: 1; }
+.price-note { font-size: 13px; color: #7a6b6b; text-transform: uppercase; letter-spacing: 2px; }
+.course-start { margin: 20px 0; padding: 14px 0; border-top: 1px solid rgba(196,90,122,0.15); border-bottom: 1px solid rgba(196,90,122,0.15); color: #5c4a4a; }
+.course-start strong { color: #2b1a1e; }
+.course-card-accent .course-list { margin-bottom: 28px; }
+/* Услуги */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 50px; }
+.service-card { background: #fdfaf9; border: 1px solid rgba(196,90,122,0.15); border-radius: 16px; padding: 36px 30px; transition: 0.3s; }
+.service-card:hover { border-color: #c45a7a; transform: translateY(-6px); box-shadow: 0 15px 30px rgba(196,90,122,0.08); }
+.service-card h3 { color: #c45a7a; }
+.service-card p { color: #7a6b6b; font-size: 19px; }
+/* CTA (Запись) */
+.cta-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+.cta-inner h2 { margin-bottom: 16px; }
+.cta-inner > p { color: #5c4a4a; margin-bottom: 40px; font-size: 22px; }
+.cta-buttons { display: flex; flex-direction: column; gap: 14px; }
+.cta-phone { margin-top: 28px; color: #7a6b6b; font-size: 15px; }
+.cta-phone a { color: #c45a7a; font-weight: 600; }
+/* Прайс */
+.price-page { padding: 80px 0 60px; background: #fdfaf9; }
+.price-page h1 { margin-bottom: 20px; }
+.price-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 50px 0; }
+.price-category { background: #ffffff; border: 1px solid rgba(196,90,122,0.15); border-radius: 16px; padding: 30px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+.price-category:hover { border-color: #c45a7a; box-shadow: 0 10px 25px rgba(196,90,122,0.06); }
+.price-category h3 { color: #c45a7a; font-size: 20px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid rgba(196,90,122,0.15); }
+.price-item { display: flex; align-items: baseline; gap: 8px; padding: 12px 0; font-size: 19px; }
+.price-name { color: #5c4a4a; }
+.price-dots { flex: 1; border-bottom: 1px dotted rgba(196,90,122,0.3); margin: 0 6px; transform: translateY(-3px); }
+.price-item .price-value { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 600; color: #2b1a1e; white-space: nowrap; display: inline; }
+.price-cta { margin-top: 50px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+/* Подвал */
+.footer { background: #ffffff; border-top: 1px solid rgba(196,90,122,0.1); padding-top: 60px; }
+.footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 50px; }
+.footer-col p { color: #7a6b6b; font-size: 16px; margin-bottom: 12px; }
+.footer-col h4 { font-size: 17px; color: #2b1a1e; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 2px; }
+.footer .logo { margin-bottom: 16px; }
+.footer-bottom { border-top: 1px solid rgba(196,90,122,0.1); padding: 24px; text-align: center; color: #9a8b8b; font-size: 15px; }
+/* Анимации и адаптив */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 900px) { .about-grid, .course-grid, .services-grid { grid-template-columns: 1fr; } .footer-inner { grid-template-columns: 1fr; } .nav { display: none; } }
+@media (max-width: 600px) { .section { padding: 60px 0; } .header-inner { flex-wrap: wrap; gap: 12px; justify-content: center; } .hero-buttons { flex-direction: column; align-items: center; } .btn { width: 100%; max-width: 320px; } .course-card { padding: 28px; } .price-cta { flex-direction: column; align-items: center; } h1 { font-size: 46px; } h2 { font-size: 36px; } .hero-text { font-size: 20px; } }
+/* Иконка ВК в подвале */
+.vk-link { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; color: #c45a7a; transition: 0.3s; }
+.vk-link:hover { opacity: 0.8; transform: translateY(-2px); }
+.vk-link svg { width: 24px; height: 24px; }
