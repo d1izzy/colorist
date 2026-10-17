@@ -13,19 +13,35 @@
   <header class="header">
     <div class="container header-inner">
       <a href="./" class="logo">NASTYA<span>.</span>COLOR</a>
-      <nav class="nav" id="mobileNav">
-        <a href="./">Главная</a>
-        <a href="price/">Прайс</a>
-        <a href="#course">Обучение</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
       <div class="header-right">
-        <!-- Телефон спрятан на мобильных через CSS, но он здесь нужен для ПК -->
         <a href="tel:89514462515" class="phone header-phone">8 (951) 446-25-15</a>
-        <button class="mobile-menu-btn" id="menuBtn" aria-label="Меню">☰</button>
+        <button class="mobile-menu-btn" id="menuBtn" aria-label="Открыть меню">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Полноэкранное меню -->
+  <div class="fullscreen-menu" id="fullscreenMenu">
+    <div class="fullscreen-menu-header">
+      <a href="./" class="logo" style="color: #fff;">NASTYA<span>.</span>COLOR</a>
+      <button class="close-menu-btn" id="closeMenuBtn" aria-label="Закрыть меню">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <nav class="fullscreen-nav">
+      <a href="./">Главная</a>
+      <a href="#course">Обучение</a>
+      <a href="#services">Услуги</a>
+      <a href="price/">Прайс</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="fullscreen-footer">
+      <a href="tel:89514462515" class="menu-phone">8 (951) 446-25-15</a>
+      <a href="https://vk.com/nastyona1231" target="_blank" class="menu-vk">Написать в VK</a>
+    </div>
+  </div>
 
 
 <main>
@@ -96,7 +112,7 @@
     </div>
   </section>
 
-  <section class="section services">
+  <section id="services" class="section services">
     <div class="container">
       <p class="section-label">Услуги</p>
       <h2>Окрашивание волос</h2>

@@ -136,79 +136,7 @@ h3 { font-size: 22px; margin-bottom: 14px; }
 
 
 
-/* ===== МОБИЛЬНАЯ ВЕРСИЯ (ПЕРЕЗАПИСЬ) ===== */
-.mobile-menu-btn { 
-  display: none; 
-  background: transparent; 
-  border: 1px solid #c45a7a; 
-  border-radius: 8px;
-  font-size: 24px; 
-  cursor: pointer; 
-  color: #c45a7a; 
-  padding: 2px 10px;
-  font-family: inherit;
-}
-.header-right { display: flex; align-items: center; gap: 15px; }
 
-
-
-
-
-/* ===== МОБИЛЬНАЯ ВЕРСИЯ (ФИНАЛ) ===== */
-.mobile-menu-btn { 
-  display: none; 
-  background: transparent; 
-  border: 1px solid #c45a7a; 
-  border-radius: 8px;
-  font-size: 24px; 
-  cursor: pointer; 
-  color: #c45a7a; 
-  padding: 2px 10px;
-}
-.header-right { display: flex; align-items: center; gap: 15px; }
-
-@media (max-width: 900px) {
-  /* Прячем бургер и телефон на ПК, показываем на телефоне */
-  .mobile-menu-btn { display: block; }
-  .header-phone { display: none !important; }
-  
-  /* Шапка строго в линию */
-  .header-inner { 
-    flex-wrap: nowrap !important; 
-    justify-content: space-between !important; 
-    align-items: center !important;
-    padding: 15px 20px !important; 
-  }
-  
-  /* Выпадающее меню */
-  .nav {
-    display: none;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: #fdfaf9;
-    flex-direction: column;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(196,90,122,0.2);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    text-align: center;
-    z-index: 100;
-  }
-  .nav.active { display: flex; }
-  .nav a { 
-    font-size: 18px; 
-    padding: 16px 0; 
-    border-bottom: 1px solid rgba(196,90,122,0.1); 
-    margin: 0; 
-    display: block;
-    width: 100%;
-  }
-  .nav a:last-child { border-bottom: none; }
-  
-  /* Сетки в одну колонку */
-  .about-grid, .course-grid, .services-grid, .footer-inner { 
-    grid-template-columns: 1fr !important; 
-  }
-}
 
 @media (max-width: 600px) {
   .section { padding: 60px 0; }
@@ -250,4 +178,124 @@ h3 { font-size: 22px; margin-bottom: 14px; }
   
   .price-cta { flex-direction: column; align-items: center; }
   .price-cta .btn { max-width: 100%; }
+}
+
+/* ===== НОВОЕ ПОЛНОЭКРАННОЕ МЕНЮ (КАК НА ПРИМЕРАХ) ===== */
+.mobile-menu-btn { 
+  display: none; 
+  background: transparent; 
+  border: none; 
+  color: #c45a7a; 
+  cursor: pointer;
+  padding: 5px;
+}
+.header-right { display: flex; align-items: center; gap: 15px; }
+
+/* Оверлей */
+.fullscreen-menu {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #1a1215; /* Темный фон для контраста */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.fullscreen-menu.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.fullscreen-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.close-menu-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 44px; height: 44px;
+  display: flex; justify-content: center; align-items: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close-menu-btn:hover { background: rgba(255,255,255,0.1); }
+
+.fullscreen-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 24px;
+}
+.fullscreen-nav a {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #fff;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+.fullscreen-nav a:hover {
+  color: #c45a7a;
+  padding-left: 10px;
+}
+
+.fullscreen-footer {
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.menu-phone {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 500;
+}
+.menu-vk {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #c45a7a;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+  .mobile-menu-btn { display: block; }
+  .header-phone { display: none !important; }
+  .header-inner { 
+    flex-wrap: nowrap !important; 
+    justify-content: space-between !important; 
+    align-items: center !important;
+    padding: 15px 20px !important; 
+  }
+  .about-grid, .course-grid, .services-grid, .footer-inner { 
+    grid-template-columns: 1fr !important; 
+  }
+}
+
+/* ===== ФИКС ЗАГОЛОВКА ПРАЙСА ===== */
+@media (max-width: 600px) {
+  .price-page h1 {
+    font-size: 36px !important;
+    word-wrap: break-word !important;
+  }
+  .price-item { 
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  .price-dots { display: none; }
 }

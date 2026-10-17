@@ -1,14 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Мобильное меню
+  // Меню
   var menuBtn = document.getElementById('menuBtn');
-  var mobileNav = document.getElementById('mobileNav');
+  var closeBtn = document.getElementById('closeMenuBtn');
+  var fullscreenMenu = document.getElementById('fullscreenMenu');
+  var menuLinks = document.querySelectorAll('.fullscreen-nav a');
   
-  if (menuBtn && mobileNav) {
-    menuBtn.addEventListener('click', function() {
-      mobileNav.classList.toggle('active');
-      menuBtn.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
-    });
+  function openMenu() {
+    fullscreenMenu.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Блокируем скролл фона
   }
+  
+  function closeMenu() {
+    fullscreenMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (menuBtn) menuBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  // Закрываем меню при клике на ссылку
+  menuLinks.forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
 
   // Анимация появления
   var sections = document.querySelectorAll('.section');
