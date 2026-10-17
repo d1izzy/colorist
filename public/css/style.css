@@ -138,47 +138,7 @@ h3 { font-size: 22px; margin-bottom: 14px; }
 
 
 
-@media (max-width: 600px) {
-  .section { padding: 60px 0; }
-  .hero h1 { font-size: 42px; }
-  h2 { font-size: 32px; }
-  .hero-text { font-size: 18px; }
-  .hero-buttons { flex-direction: column; align-items: center; width: 100%; }
-  .btn { width: 100%; max-width: 100%; }
-  .course-card { padding: 24px; }
-  
-  /* ИСПРАВЛЕНИЕ ПРАЙСА НА ТЕЛЕФОНЕ */
-  .price-list { 
-    grid-template-columns: 1fr; 
-    gap: 20px;
-  }
-  .price-category {
-    padding: 20px;
-  }
-  /* Убираем пунктирную линию, которая ломает экран */
-  .price-dots { 
-    display: none; 
-  }
-  /* Выстраиваем цену и название аккуратно */
-  .price-item { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-    gap: 4px;
-    padding: 10px 0;
-    border-bottom: 1px dashed rgba(196,90,122,0.2);
-  }
-  .price-item:last-child {
-    border-bottom: none;
-  }
-  .price-item .price-value {
-    color: #c45a7a;
-    font-size: 18px;
-  }
-  
-  .price-cta { flex-direction: column; align-items: center; }
-  .price-cta .btn { max-width: 100%; }
-}
+
 
 /* ===== НОВОЕ ПОЛНОЭКРАННОЕ МЕНЮ (КАК НА ПРИМЕРАХ) ===== */
 .mobile-menu-btn { 
@@ -273,46 +233,49 @@ h3 { font-size: 22px; margin-bottom: 14px; }
   letter-spacing: 1px;
 }
 
-@media (max-width: 900px) {
-  .mobile-menu-btn { display: block; }
-  .header-phone { display: none !important; }
-  .header-inner { 
-    flex-wrap: nowrap !important; 
-    justify-content: space-between !important; 
-    align-items: center !important;
-    padding: 15px 20px !important; 
-  }
-  .about-grid, .course-grid, .services-grid, .footer-inner { 
-    grid-template-columns: 1fr !important; 
-  }
-}
+
 
 /* ===== ФИКС ЗАГОЛОВКА ПРАЙСА ===== */
-@media (max-width: 600px) {
-  .price-page h1 {
-    font-size: 36px !important;
-    word-wrap: break-word !important;
-  }
-  .price-item { 
-    flex-direction: column; 
-    align-items: flex-start; 
-  }
-  .price-dots { display: none; }
-}
+
 
 /* ===== ФИКС ШАПКИ ===== */
 .desktop-nav { display: flex; gap: 28px; }
 .desktop-nav a { color: #5c4a4a; font-size: 16px; letter-spacing: 0.5px; transition: 0.3s; }
 .desktop-nav a:hover { color: #c45a7a; }
 
+
+
+/* ===== СТРОГИЕ ПРАВИЛА ДЛЯ ПК И МОБИЛЬНЫХ ===== */
+
+/* Базовые стили (ПК) */
+.desktop-nav { display: flex !important; gap: 28px; }
+.desktop-nav a { color: #5c4a4a; font-size: 16px; letter-spacing: 0.5px; transition: 0.3s; }
+.desktop-nav a:hover { color: #c45a7a; }
+.mobile-menu-btn { display: none !important; }
+.header-phone { display: block !important; }
+.header-inner { flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; }
+
+/* Стили для телефонов (экраны до 900px) */
 @media (max-width: 900px) {
-  .desktop-nav { display: none !important; } /* Прячем текстовое меню на телефонах */
-  .mobile-menu-btn { display: block !important; } /* Показываем бургер */
-  .header-phone { display: none !important; } /* Прячем телефон */
+  /* Прячем всё лишнее */
+  .desktop-nav { display: none !important; }
+  .header-phone { display: none !important; }
   
-  .header-inner { 
-    flex-wrap: nowrap !important; 
-    justify-content: space-between !important; 
-    align-items: center !important;
+  /* Показываем только бургер */
+  .mobile-menu-btn { display: block !important; }
+  
+  /* Уменьшаем шрифт в полноэкранном меню (делаем 22px вместо 32px) */
+  .fullscreen-nav a {
+    font-size: 22px !important; 
+    padding: 16px 0 !important;
   }
+}
+
+/* Фиксы для маленьких экранов (Прайс) */
+@media (max-width: 600px) {
+  .price-category { padding-bottom: 24px !important; }
+  .price-page h1 { font-size: 34px !important; word-wrap: break-word !important; }
+  .about-grid, .course-grid, .services-grid, .footer-inner { grid-template-columns: 1fr !important; }
+  .hero h1 { font-size: 42px; }
+  h2 { font-size: 32px; }
 }
