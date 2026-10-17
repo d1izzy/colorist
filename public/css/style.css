@@ -104,9 +104,98 @@ h3 { font-size: 22px; margin-bottom: 14px; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 
+
+
+/* ===== ПРАВИЛЬНАЯ МОБИЛЬНАЯ ШАПКА ===== */
+.mobile-menu-btn { 
+  display: none; 
+  background: transparent; 
+  border: 1px solid rgba(196,90,122,0.3); 
+  border-radius: 8px;
+  font-size: 24px; 
+  cursor: pointer; 
+  color: #c45a7a; 
+  padding: 4px 12px;
+}
+.header-right { display: flex; align-items: center; gap: 15px; }
+
+
+
+/* ===== ПРАВИЛЬНАЯ МОБИЛЬНАЯ ШАПКА ===== */
+.mobile-menu-btn { 
+  display: none; 
+  background: transparent; 
+  border: 1px solid rgba(196,90,122,0.3); 
+  border-radius: 8px;
+  font-size: 24px; 
+  cursor: pointer; 
+  color: #c45a7a; 
+  padding: 4px 12px;
+}
+.header-right { display: flex; align-items: center; gap: 15px; }
+
+
+
+/* ===== МОБИЛЬНАЯ ВЕРСИЯ (ПЕРЕЗАПИСЬ) ===== */
+.mobile-menu-btn { 
+  display: none; 
+  background: transparent; 
+  border: 1px solid #c45a7a; 
+  border-radius: 8px;
+  font-size: 24px; 
+  cursor: pointer; 
+  color: #c45a7a; 
+  padding: 2px 10px;
+  font-family: inherit;
+}
+.header-right { display: flex; align-items: center; gap: 15px; }
+
+@media (max-width: 900px) {
+  .mobile-menu-btn { display: block; }
+  
+  /* Прячем телефон в шапке */
+  .header-inner > .phone { display: none; }
+  
+  /* Делаем шапку в одну линию */
+  .header-inner { 
+    flex-wrap: nowrap !important; 
+    justify-content: space-between !important; 
+    align-items: center !important;
+    padding: 15px 20px !important; 
+  }
+  
+  /* Выпадающее меню */
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #fdfaf9;
+    flex-direction: column;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(196,90,122,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    z-index: 100;
+  }
+  .nav.active { display: flex; }
+  .nav a { 
+    font-size: 18px; 
+    padding: 16px 0; 
+    border-bottom: 1px solid rgba(196,90,122,0.1); 
+    margin: 0; 
+    display: block;
+    width: 100%;
+  }
+  .nav a:last-child { border-bottom: none; }
+  
+  /* Сетки в одну колонку */
+  .about-grid, .course-grid, .services-grid, .footer-inner { 
+    grid-template-columns: 1fr !important; 
+  }
+}
+
 @media (max-width: 600px) {
   .section { padding: 60px 0; }
-  .header-inner { flex-wrap: nowrap; gap: 10px; justify-content: space-between; }
   .hero h1 { font-size: 42px; }
   h2 { font-size: 32px; }
   .hero-text { font-size: 18px; }
@@ -118,92 +207,4 @@ h3 { font-size: 22px; margin-bottom: 14px; }
   .price-cta .btn { max-width: 100%; }
   .stat strong { font-size: 32px; }
   .stat span { font-size: 16px; }
-}
-
-/* ===== ПРАВИЛЬНАЯ МОБИЛЬНАЯ ШАПКА ===== */
-.mobile-menu-btn { 
-  display: none; 
-  background: transparent; 
-  border: 1px solid rgba(196,90,122,0.3); 
-  border-radius: 8px;
-  font-size: 24px; 
-  cursor: pointer; 
-  color: #c45a7a; 
-  padding: 4px 12px;
-}
-.header-right { display: flex; align-items: center; gap: 15px; }
-
-@media (max-width: 900px) {
-  .mobile-menu-btn { display: block; }
-  
-  /* Прячем телефон в шапке на телефонах, чтобы не мешал */
-  .header .phone { display: none; }
-  
-  /* Выпадающее меню */
-  .nav {
-    display: none;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: #fdfaf9;
-    flex-direction: column;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(196,90,122,0.2);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    text-align: center;
-  }
-  .nav.active { display: flex; }
-  .nav a { font-size: 18px; padding: 16px 0; border-bottom: 1px solid rgba(196,90,122,0.1); margin: 0; }
-  .nav a:last-child { border-bottom: none; }
-  
-  /* Делаем шапку ровной в одну линию */
-  .header-inner { 
-    flex-wrap: nowrap; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 15px 20px; 
-  }
-}
-
-/* ===== ПРАВИЛЬНАЯ МОБИЛЬНАЯ ШАПКА ===== */
-.mobile-menu-btn { 
-  display: none; 
-  background: transparent; 
-  border: 1px solid rgba(196,90,122,0.3); 
-  border-radius: 8px;
-  font-size: 24px; 
-  cursor: pointer; 
-  color: #c45a7a; 
-  padding: 4px 12px;
-}
-.header-right { display: flex; align-items: center; gap: 15px; }
-
-@media (max-width: 900px) {
-  .mobile-menu-btn { display: block; }
-  
-  /* Прячем телефон в шапке на телефонах, чтобы не мешал */
-  .header .phone { display: none; }
-  
-  /* Выпадающее меню */
-  .nav {
-    display: none;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: #fdfaf9;
-    flex-direction: column;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(196,90,122,0.2);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    text-align: center;
-  }
-  .nav.active { display: flex; }
-  .nav a { font-size: 18px; padding: 16px 0; border-bottom: 1px solid rgba(196,90,122,0.1); margin: 0; }
-  .nav a:last-child { border-bottom: none; }
-  
-  /* Делаем шапку ровной в одну линию */
-  .header-inner { 
-    flex-wrap: nowrap; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 15px 20px; 
-  }
 }
