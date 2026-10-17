@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Мобильное меню
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', function() {
+      mobileNav.classList.toggle('active');
+      menuBtn.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+    });
+  }
+
+  // Анимация появления
   var sections = document.querySelectorAll('.section');
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function(entries) {
